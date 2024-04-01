@@ -1,0 +1,21 @@
+{
+  "name": "challenge-dev-api",
+  "version": "1.0.0",
+  "description": "api from challenge-dev",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx nodemon src/server.ts --watch 'src/' -e ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}
