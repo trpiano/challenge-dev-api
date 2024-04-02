@@ -20,6 +20,10 @@ function generateNewId(enterprises) {
   return 'PA' + String(nextId).padStart(3, '0');
 }
 
+function generateRandomNumber(): number {
+  return Math.floor(Math.random() * 900000) + 100000;
+}
+
 // Fetch all enterprises
 app.get('/enterprises', (req, res) => {
     if(data.enterprises){
@@ -49,7 +53,7 @@ app.put('/enterprises/:id', (req, res) => {
 app.post('/enterprises', (req, res) => {
   const newEnterprise = req.body;
 
-  const requiredFields = ['name', 'status', 'purpose', 'ri_number', 'address'];
+  const requiredFields = ['name', 'purpose', 'address'];
 
   const missingFields = requiredFields.filter(field => !newEnterprise.hasOwnProperty(field));
 
@@ -58,6 +62,8 @@ app.post('/enterprises', (req, res) => {
   }
 
   newEnterprise.id = generateNewId(data.enterprises)
+  newEnterprise.status = 'RELEASE'
+  newEnterprise.ri_number = generateRandomNumber()
 
   data.enterprises.push(newEnterprise);
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data, null, 2));
