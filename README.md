@@ -6,8 +6,8 @@ This is a simple API for managing a list of enterprises. It uses a JSON file to 
 To get started, clone this repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-username/enterprise-api.git
-cd enterprise-api
+git clone https://github.com/trpiano/challenge-dev-api.git
+cd challenge-dev-api
 npm install
 # or
 pnpm i
